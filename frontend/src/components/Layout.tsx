@@ -3,11 +3,11 @@ import { useAuthStore } from '../store/authStore'
 import clsx from 'clsx'
 
 const nav = [
-  { to: '/',          label: 'Dashboard', icon: '⊞' },
+  { to: '/',          label: 'Dashboard', icon: '📅' },
   { to: '/quiz',      label: 'Quiz',      icon: '⚡' },
   { to: '/materials', label: 'Materials', icon: '📂' },
-  { to: '/stats',     label: 'Progress',  icon: '◑' },
-  { to: '/badges',    label: 'Badges',    icon: '◈' },
+  { to: '/stats',     label: 'Progress',  icon: '📈' },
+  { to: '/badges',    label: 'Badges',    icon: '🏆' },
 ]
 
 export default function Layout() {

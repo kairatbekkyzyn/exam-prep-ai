@@ -1,10 +1,31 @@
+import os
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
-import os
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./examai.db")
 
-engine = create_async_engine(DATABASE_URL, echo=False)
+# Fix URL format — Render/Supabase give postgres://, SQLAlchemy needs postgresql+asyncpg://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://", 1)
+elif DATABASE_URL.startswith("postgresql://") and "+asyncpg" not in DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
+
+is_postgres = "postgresql" in DATABASE_URL
+
+engine = create_async_engine(
+    DATABASE_URL,
+    echo=False,
+    **(
+        {
+            "pool_size": 5,
+            "max_overflow": 10,
+            "pool_pre_ping": True,
+            "connect_args": {"ssl": "require"},
+        }
+        if is_postgres else {}
+    )
+)
+
 async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
