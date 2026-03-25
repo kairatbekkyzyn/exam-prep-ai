@@ -30,10 +30,10 @@ export default function Stats() {
 
   if (!stats || stats.total_attempts === 0) return (
     <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
-      <h1 style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'white', letterSpacing:'-0.02em' }}>Progress</h1>
+      <h1 style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'var(--text)', letterSpacing:'-0.02em' }}>Progress</h1>
       <div className="card" style={{ textAlign:'center', padding:'80px 40px' }}>
         <p style={{ fontSize:48, marginBottom:14 }}>📊</p>
-        <p style={{ color:'white', fontWeight:600, fontSize:16, marginBottom:6 }}>No data yet</p>
+        <p style={{ color:'var(--text)', fontWeight:600, fontSize:16, marginBottom:6 }}>No data yet</p>
         <p style={{ color:'var(--text2)', fontSize:13 }}>Answer quiz questions to see your analytics</p>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default function Stats() {
 
   return (
     <div style={{ display:'flex', flexDirection:'column', gap:22 }}>
-      <h1 className="anim-up d-0" style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'white', letterSpacing:'-0.02em' }}>
+      <h1 className="anim-up d-0" style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'var(--text)', letterSpacing:'-0.02em' }}>
         Progress
       </h1>
 
@@ -81,7 +81,7 @@ export default function Stats() {
       {stats.topics.length >= 2 && (
         <div className="anim-up d-3" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16 }}>
           <div className="card" style={{ padding:22 }}>
-            <p style={{ fontFamily:'Syne', color:'white', fontWeight:700, fontSize:14, marginBottom:18 }}>Topic Coverage</p>
+            <p style={{ fontFamily:'Syne', color:'var(--text)', fontWeight:700, fontSize:14, marginBottom:18 }}>Topic Coverage</p>
             <ResponsiveContainer width="100%" height={210}>
               <RadarChart data={radar}>
                 <PolarGrid stroke="rgba(255,255,255,0.06)" />
@@ -91,7 +91,7 @@ export default function Stats() {
             </ResponsiveContainer>
           </div>
           <div className="card" style={{ padding:22 }}>
-            <p style={{ fontFamily:'Syne', color:'white', fontWeight:700, fontSize:14, marginBottom:18 }}>Weakest Topics</p>
+            <p style={{ fontFamily:'Syne', color:'var(--text)', fontWeight:700, fontSize:14, marginBottom:18 }}>Weakest Topics</p>
             <ResponsiveContainer width="100%" height={210}>
               <BarChart data={bars} layout="vertical" margin={{ left:0, right:20 }}>
                 <XAxis type="number" domain={[0,100]} tick={{ fontSize:9, fill:'#334155' }} tickFormatter={v=>`${v}%`} axisLine={false} tickLine={false} />
@@ -108,7 +108,7 @@ export default function Stats() {
 
       {/* Topic list */}
       <div className="card anim-up d-4" style={{ padding:24 }}>
-        <p style={{ fontFamily:'Syne', color:'white', fontWeight:700, fontSize:14, marginBottom:20 }}>All Topics</p>
+        <p style={{ fontFamily:'Syne', color:'var(--text)', fontWeight:700, fontSize:14, marginBottom:20 }}>All Topics</p>
         <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
           {stats.topics.map(t => {
             const pct = Math.round(t.accuracy*100)

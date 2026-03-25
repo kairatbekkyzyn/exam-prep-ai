@@ -76,7 +76,7 @@ export default function Materials() {
       {/* Header */}
       <div className="anim-up d-0" style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
         <div>
-          <h1 style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'white', letterSpacing:'-0.02em' }}>
+          <h1 style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'var(--text)', letterSpacing:'-0.02em' }}>
             Study Materials
           </h1>
           <p style={{ color:'var(--text2)', fontSize:13, marginTop:4 }}>
@@ -107,7 +107,7 @@ export default function Materials() {
       {/* Upload form */}
       {showForm && (
         <div className="card anim-scale" style={{ border:'1px solid rgba(34,211,238,0.15)', padding:28 }}>
-          <h3 style={{ fontFamily:'Syne', fontSize:16, fontWeight:700, color:'white', marginBottom:20 }}>
+          <h3 style={{ fontFamily:'Syne', fontSize:16, fontWeight:700, color:'var(--text)', marginBottom:20 }}>
             Add New Material
           </h3>
 
@@ -121,7 +121,7 @@ export default function Materials() {
                 flex:1, padding:'8px', borderRadius:7, border:'none', cursor:'pointer',
                 fontFamily:'Manrope', fontWeight:600, fontSize:13, transition:'all 0.2s',
                 background: tab===t ? 'var(--surface)' : 'transparent',
-                color: tab===t ? 'white' : 'var(--text2)',
+                color: tab===t ? 'var(--text)' : 'var(--text2)',
                 boxShadow: tab===t ? '0 1px 4px rgba(0,0,0,0.3)' : 'none'
               }}>
                 {t==='file' ? '📁 Upload File' : '📋 Paste Text'}
@@ -153,7 +153,7 @@ export default function Materials() {
                   {file ? (
                     <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:10 }}>
                       <span style={{ fontSize:40 }}>{FILE_ICONS[ext(file)] ?? '📎'}</span>
-                      <p style={{ color:'white', fontWeight:600, fontSize:14 }}>{file.name}</p>
+                      <p style={{ color:'var(--text)', fontWeight:600, fontSize:14 }}>{file.name}</p>
                       <p style={{ color:'var(--text2)', fontSize:12 }}>
                         {(file.size/1024).toFixed(0)} KB
                       </p>
@@ -165,7 +165,7 @@ export default function Materials() {
                   ) : (
                     <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:10 }}>
                       <span style={{ fontSize:44 }}>☁</span>
-                      <p style={{ color:'white', fontWeight:600, fontSize:15 }}>
+                      <p style={{ color:'var(--text)', fontWeight:600, fontSize:15 }}>
                         Drop your file here
                       </p>
                       <p style={{ color:'var(--text2)', fontSize:13 }}>
@@ -214,7 +214,7 @@ export default function Materials() {
             <div>
               <label className="label">
                 Questions to generate —{' '}
-                <span style={{ color:'white', textTransform:'none', fontFamily:'JetBrains Mono' }}>{numQ}</span>
+                <span style={{ color:'var(--text)', textTransform:'none', fontFamily:'JetBrains Mono' }}>{numQ}</span>
               </label>
               <div style={{ display:'flex', alignItems:'center', gap:14 }}>
                 <span style={{ color:'var(--text2)', fontSize:11, width:30, textAlign:'center' }}>3</span>
@@ -254,7 +254,7 @@ export default function Materials() {
       ) : materials.length === 0 ? (
         <div className="card anim-up" style={{ textAlign:'center', padding:'80px 40px' }}>
           <p style={{ fontSize:48, marginBottom:16 }}>📂</p>
-          <h3 style={{ fontFamily:'Syne', color:'white', fontWeight:700, fontSize:18, marginBottom:8 }}>
+          <h3 style={{ fontFamily:'Syne', color:'var(--text)', fontWeight:700, fontSize:18, marginBottom:8 }}>
             No materials yet
           </h3>
           <p style={{ color:'var(--text2)', fontSize:13, maxWidth:300, margin:'0 auto 24px' }}>
@@ -284,7 +284,7 @@ export default function Materials() {
                 display:'flex', alignItems:'center', justifyContent:'center', fontSize:20
               }}>📖</div>
               <div style={{ flex:1, minWidth:0 }}>
-                <p style={{ color:'white', fontWeight:600, fontSize:14 }}>{m.title}</p>
+                <p style={{ color:'var(--text)', fontWeight:600, fontSize:14 }}>{m.title}</p>
                 <div style={{ display:'flex', alignItems:'center', gap:10, marginTop:5 }}>
                   <span className="chip chip-cyan" style={{ fontSize:10 }}>
                     {m.question_count} questions

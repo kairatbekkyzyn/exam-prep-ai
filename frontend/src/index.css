@@ -21,6 +21,7 @@
   --text:      #e2e8f0;
   --text2:     #64748b;
   --text3:     #334155;
+  --purple:    #a78bfa;
 }
 
 @layer base {
@@ -242,8 +243,8 @@
   --border:    rgba(0,0,0,0.08);
   --border2:   rgba(0,0,0,0.14);
   --text:      #0f172a;
-  --text2:     #64748b;
-  --text3:     #94a3b8;
+  --text2:     #475569;
+  --text3:     #64748b;
   --cyan:      #0891b2;
   --cyan-dim:  rgba(8,145,178,0.1);
   --amber:     #d97706;
@@ -252,6 +253,7 @@
   --em-dim:    rgba(5,150,105,0.1);
   --red:       #dc2626;
   --red-dim:   rgba(220,38,38,0.08);
+  --purple:    #a78bfa;
 }
 
 [data-theme="light"] .card,
@@ -282,7 +284,7 @@
   background: #cbd5e1;
 }
 
-/* ── Text utilities (theme-aware, never hardcode colors) ─── */
+/* ── Text utilities ─── */
 .t-primary   { color: var(--text); }
 .t-secondary { color: var(--text2); }
 .t-muted     { color: var(--text3); }
@@ -330,3 +332,8 @@
 
 /* ── Mono number ───────────────────────────────────────────── */
 .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+/* ── Safety layer ───────────────────────────────────────────── */
+.force-text {
+  color: var(--text) !important;
+}

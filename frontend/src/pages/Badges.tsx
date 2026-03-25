@@ -22,13 +22,12 @@ export default function Badges() {
     <div style={{ display:'flex', flexDirection:'column', gap:24 }}>
       {/* Header */}
       <div className="anim-up d-0">
-        <h1 style={{ fontFamily:'Syne', fontSize:24, fontWeight:800, color:'white', letterSpacing:'-0.02em' }}>
-          Achievements
-        </h1>
-        <p style={{ color:'var(--text2)', fontSize:13, marginTop:4 }}>
+        <h1 className="h1">Achievements</h1>
+        <p className="t-secondary" style={{ fontSize:13, marginTop:4 }}>
           {earned.length} of {badges.length} badges earned
         </p>
       </div>
+      
 
       {/* Progress card */}
       <div className="anim-up d-1" style={{
@@ -38,7 +37,9 @@ export default function Badges() {
         <div style={{ fontSize:40 }}>🏆</div>
         <div style={{ flex:1 }}>
           <div style={{ display:'flex', justifyContent:'space-between', marginBottom:10 }}>
-            <p style={{ color:'white', fontWeight:700, fontSize:15 }}>Badge Collection</p>
+            <p className="t-primary" style={{ fontWeight:700, fontSize:15 }}>
+              Badge Collection
+            </p>
             <span className="stat-num" style={{ color:'var(--amber)', fontSize:18, fontWeight:700 }}>{pct}%</span>
           </div>
           <div className="progress-track">
@@ -65,8 +66,9 @@ export default function Badges() {
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform=''; (e.currentTarget as HTMLElement).style.boxShadow='' }}
               >
                 <span style={{ fontSize:36, display:'block', marginBottom:10 }}>{b.icon}</span>
-                <p style={{ color:'white', fontWeight:700, fontSize:13, fontFamily:'Syne' }}>{b.name}</p>
-                <p style={{ color:'var(--text2)', fontSize:11, marginTop:6, lineHeight:1.5 }}>{b.description}</p>
+                <p className="t-primary" style={{ fontWeight:700, fontSize:13, fontFamily:'Syne' }}>
+                  {b.name}
+                </p>                <p style={{ color:'var(--text2)', fontSize:11, marginTop:6, lineHeight:1.5 }}>{b.description}</p>
                 {b.earned_at && (
                   <p style={{ color:'rgba(251,191,36,0.5)', fontSize:10, marginTop:10, borderTop:'1px solid rgba(251,191,36,0.1)', paddingTop:8 }}>
                     {new Date(b.earned_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})}
@@ -91,8 +93,9 @@ export default function Badges() {
                 borderRadius:14, padding:'20px 16px', textAlign:'center', opacity:0.4, filter:'grayscale(1)'
               }}>
                 <span style={{ fontSize:36, display:'block', marginBottom:10 }}>{b.icon}</span>
-                <p style={{ color:'white', fontWeight:700, fontSize:13, fontFamily:'Syne' }}>{b.name}</p>
-                <p style={{ color:'var(--text2)', fontSize:11, marginTop:6, lineHeight:1.5 }}>{b.description}</p>
+                <p className="t-primary" style={{ fontWeight:700, fontSize:13, fontFamily:'Syne' }}>
+                  {b.name}
+                </p>                <p style={{ color:'var(--text2)', fontSize:11, marginTop:6, lineHeight:1.5 }}>{b.description}</p>
               </div>
             ))}
           </div>
