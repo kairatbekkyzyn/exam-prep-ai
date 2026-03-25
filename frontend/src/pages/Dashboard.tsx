@@ -32,13 +32,13 @@ export default function Dashboard() {
   const statCards = [
     { label: 'Questions', value: stats?.total_attempts ?? 0, icon: '📝', color: 'var(--cyan)' },
     { label: 'Accuracy', value: `${accuracy}%`, icon: '🎯', color: accuracy >= 70 ? 'var(--emerald)' : accuracy >= 50 ? 'var(--amber)' : 'var(--red)' },
-    { label: 'Materials', value: matCount, icon: '📂', color: 'var(--cyan)' },
+    { label: 'Materials', value: matCount, icon: '📂', color: 'var(--purple)' },
     { label: 'Total XP', value: user?.xp ?? 0, icon: '⚡', color: 'var(--amber)' },
   ]
 
   const actions = [
     { to: '/quiz', icon: '⚡', label: 'Start Adaptive Quiz', desc: 'AI targets your weak topics', color: 'var(--cyan)', bg: 'rgba(34,211,238,0.08)', border: 'rgba(34,211,238,0.2)' },
-    { to: '/materials', icon: '📂', label: 'Upload Material', desc: 'PDF, DOCX or TXT → instant quiz', color: 'var(--cyan)', bg: 'rgba(34,211,238,0.08)', border: 'rgba(34,211,238,0.2)' },
+    { to: '/materials', icon: '📂', label: 'Upload Material', desc: 'PDF, DOCX or TXT → instant quiz', color: 'var(--purple)', bg: 'rgba(34,211,238,0.08)', border: 'rgba(34,211,238,0.2)' },
     { to: '/stats', icon: '◑', label: 'View Progress', desc: 'Charts by topic, AI coaching', color: 'var(--emerald)', bg: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.2)' },
     { to: '/badges', icon: '◈', label: 'My Badges', desc: 'Achievements & milestones', color: 'var(--amber)', bg: 'rgba(251,191,36,0.08)', border: 'rgba(251,191,36,0.2)' },
   ]
