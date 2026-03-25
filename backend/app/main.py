@@ -24,7 +24,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://exam-prep-ai-pink.vercel.app",
+    "https://exam-prep-ai-git-master-kairatbekkyzyns-projects.vercel.app",
+    "https://exam-prep-6m2l4gri8-kairatbekkyzyns-projects.vercel.app",],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
