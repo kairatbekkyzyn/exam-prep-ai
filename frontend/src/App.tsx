@@ -4,6 +4,7 @@ import { useAuthStore } from './store/authStore'
 import Layout from './components/Layout'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import OAuthCallback from './pages/OAuthCallback'
 import Dashboard from './pages/Dashboard'
 import Quiz from './pages/Quiz'
 import Materials from './pages/Materials'
@@ -30,6 +31,8 @@ export default function App() {
     <Routes>
       <Route path="/login"    element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/oauth/callback" element={<OAuthCallback />} />
+      <Route path="/auth/callback/:provider" element={<OAuthCallback />} />
       <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
         <Route index          element={<Dashboard />} />
         <Route path="quiz"      element={<Quiz />} />
