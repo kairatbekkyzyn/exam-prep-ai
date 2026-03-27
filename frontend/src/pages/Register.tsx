@@ -2,18 +2,17 @@ import { useState, FormEvent, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { authAPI } from '../api'
-import OAuthButtons from '../components/OAuthButtons'
 
 type Step = 'form' | 'otp'
 
 export default function Register() {
-  const [step, setStep]             = useState<Step>('form')
-  const [name, setName]             = useState('')
-  const [email, setEmail]           = useState('')
-  const [password, setPassword]     = useState('')
-  const [otp, setOtp]               = useState(['','','','','',''])
-  const [error, setError]           = useState('')
-  const [loading, setLoading]       = useState(false)
+  const [step, setStep]           = useState<Step>('form')
+  const [name, setName]           = useState('')
+  const [email, setEmail]         = useState('')
+  const [password, setPassword]   = useState('')
+  const [otp, setOtp]             = useState(['','','','','',''])
+  const [error, setError]         = useState('')
+  const [loading, setLoading]     = useState(false)
   const [resendCool, setResendCool] = useState(false)
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
   const { fetchMe } = useAuthStore()
@@ -115,10 +114,6 @@ export default function Register() {
                 {loading ? <Spin /> : 'Create Account →'}
               </button>
             </form>
-
-            <div style={{ marginTop:20 }}>
-              <OAuthButtons />
-            </div>
 
             <div style={{ marginTop:20, paddingTop:20, borderTop:'1px solid var(--border)', textAlign:'center', fontSize:13 }}>
               <span className="t-secondary">Have an account? </span>

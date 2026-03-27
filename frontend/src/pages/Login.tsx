@@ -1,7 +1,6 @@
-import { useState, FormEvent, useEffect } from 'react'
+import { useState, FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
-import OAuthButtons from '../components/OAuthButtons'
 
 export default function Login() {
   const [email, setEmail]       = useState('')
@@ -10,12 +9,6 @@ export default function Login() {
   const [loading, setLoading]   = useState(false)
   const { login }               = useAuthStore()
   const navigate                = useNavigate()
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const err = params.get('error')
-    if (err) setError('OAuth sign-in failed. Please try again or use email.')
-  }, [])
 
   const submit = async (e: FormEvent) => {
     e.preventDefault(); setError(''); setLoading(true)
@@ -68,10 +61,6 @@ export default function Login() {
               {loading ? <Spin /> : 'Sign In →'}
             </button>
           </form>
-
-          <div style={{ marginTop:20 }}>
-            <OAuthButtons />
-          </div>
 
           <div style={{ marginTop:20, paddingTop:20, borderTop:'1px solid var(--border)', textAlign:'center', fontSize:13 }}>
             <span className="t-secondary">No account? </span>
